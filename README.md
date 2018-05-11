@@ -53,19 +53,21 @@ Explain what these tests test and why
         sliderItems.add(new SliderItem("title4",R.drawable.slide6));
         easySlider.setPages(sliderItems);
 ```
+
 * you can add image url instead of  image id
+
+
+* Screenshots  
+
+ ![alt text](https://github.com/ahmedshaban1/EasySlider/blob/master/Screenshot_2018-05-11-18-44-00.png)
+ ![alt text](https://github.com/ahmedshaban1/EasySlider/blob/master/Screenshot_2018-05-11-18-44-00.png)
+ ![alt text](https://github.com/ahmedshaban1/EasySlider/blob/master/Screenshot_2018-05-11-18-44-00.png)
+
 
 ## Built With
 
-0* [picasso](http://square.github.io/picasso/)- Loading images framework
+* [picasso](http://square.github.io/picasso/)- Loading images framework
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 

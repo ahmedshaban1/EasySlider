@@ -17,7 +17,6 @@ Say what the step will be
 ```
 allprojects {
 		repositories {
-			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
@@ -26,42 +25,39 @@ allprojects {
 ```
 dependencies {
 	        implementation 'com.github.ahmedshaban1:EasySlider:1.0.0'
-			}
+	}
 ```
 
 
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ### And coding style tests
 
-Explain what these tests test and why
-
+Explain what these tests test and why 
+* xml code
 ```
-Give an example
+ <ahmed.easyslider.EasySlider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/slider"/>
 ```
 
-## Deployment
+* java code 
+```
+  EasySlider easySlider = findViewById(R.id.slider);
 
-Add additional notes about how to deploy this on a live system
+        List<SliderItem> sliderItems = new ArrayList<>();
+        sliderItems.add(new SliderItem("title1",R.drawable.slide2));
+        sliderItems.add(new SliderItem("title2",R.drawable.slide3));
+        sliderItems.add(new SliderItem("title3",R.drawable.slide4));
+        sliderItems.add(new SliderItem("title4",R.drawable.slide6));
+        easySlider.setPages(sliderItems);
+```
+* you can add image url instead of  image id
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+0* [picasso](http://square.github.io/picasso/)- Loading images framework
 
 ## Contributing
 
@@ -73,17 +69,5 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* **Ahmed Shaban** 
 

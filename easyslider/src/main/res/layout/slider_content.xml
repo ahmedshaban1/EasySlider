@@ -8,6 +8,7 @@
         android:id="@+id/pager"/>
     <LinearLayout
         android:layout_width="wrap_content"
+        android:id="@+id/dots_container"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded"
         android:layout_centerHorizontal="true"

@@ -34,8 +34,10 @@ public class EasySlider extends RelativeLayout {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int active = -1;
+    private boolean hasDots = true;
     private boolean isFirstSwipe = true;
     private EasySliderListener easySliderListener;
+    private View dots_container;
 
     public EasySlider(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -47,6 +49,7 @@ public class EasySlider extends RelativeLayout {
         root = inflate(context,R.layout.slider_content,this);
         pager = root.findViewById(R.id.pager);
         dotsLayout = root.findViewById(R.id.dots_layout);
+        dots_container = root.findViewById(R.id.dots_container);
 
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -77,6 +80,16 @@ public class EasySlider extends RelativeLayout {
         });
 
 
+
+
+    }
+
+    public  void  showDots(){
+        dots_container.setVisibility(VISIBLE);
+    }
+
+    public  void  hideDots(){
+        dots_container.setVisibility(GONE);
     }
 
     private void switchDots(int position, int active) {

@@ -17,11 +17,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ahmed.easyslider.EasySlider;
+import ahmed.easyslider.EasySliderListener;
 import ahmed.easyslider.SliderItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,13 +37,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         easySlider = findViewById(R.id.slider);
-
+        easySlider.setOnItemClickListener(new EasySliderListener() {
+            @Override
+            public void onItemClick(int position) {
+                Toast.makeText(MainActivity.this, "this is position"+position, Toast.LENGTH_SHORT).show();
+            }
+        });
         List<SliderItem> sliderItems = new ArrayList<>();
         sliderItems.add(new SliderItem("title1",R.drawable.slide2));
         sliderItems.add(new SliderItem("title2",R.drawable.slide3));
         sliderItems.add(new SliderItem("title3",R.drawable.slide4));
         sliderItems.add(new SliderItem("title4",R.drawable.slide6));
         easySlider.setPages(sliderItems);
+
 
 
 

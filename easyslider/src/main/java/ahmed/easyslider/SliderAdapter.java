@@ -12,16 +12,25 @@ import java.util.List;
 
 public class SliderAdapter extends FragmentPagerAdapter {
         List<SliderItem> sliderItems;
+        EasySliderListener easySliderListener;
 
-        public SliderAdapter(FragmentManager fm, List<SliderItem>  sliderItems) {
+        public SliderAdapter(FragmentManager fm, List<SliderItem>  sliderItems,EasySliderListener easySliderListener) {
             super(fm);
            this.sliderItems = sliderItems;
+           this.easySliderListener = easySliderListener;
         }
 
         @Override
         public Fragment getItem(int position) {
-
-            return SliderFragment.newInstance(sliderItems.get(position));
+            Fragment fragment = SliderFragment.newInstance(sliderItems.get(position),position);
+            ((SliderFragment)fragment).setEasySliderListener(new EasySliderListener() {
+                @Override
+                public void onItemClick(int position) {
+                    if(easySliderListener!=null)
+                    easySliderListener.onItemClick(position);
+                }
+            });
+            return fragment;
         }
 
         @Override

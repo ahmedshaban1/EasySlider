@@ -35,6 +35,7 @@ public class EasySlider extends RelativeLayout {
     private TextView[] dots;
     private int active = -1;
     private boolean isFirstSwipe = true;
+    private EasySliderListener easySliderListener;
 
     public EasySlider(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -90,7 +91,7 @@ public class EasySlider extends RelativeLayout {
     public  void setPages(List<SliderItem>  sliderItems){
         this.sliderItems.clear();
         this.sliderItems.addAll(sliderItems);
-        mSectionsPagerAdapter = new SliderAdapter(((android.support.v4.app.FragmentActivity) context).getSupportFragmentManager(),sliderItems);
+        mSectionsPagerAdapter = new SliderAdapter(((android.support.v4.app.FragmentActivity) context).getSupportFragmentManager(),sliderItems,easySliderListener);
         if(sliderItems.size() > 0){
             pager.setAdapter(mSectionsPagerAdapter);
             pager.setOffscreenPageLimit(sliderItems.size());
@@ -155,5 +156,9 @@ public class EasySlider extends RelativeLayout {
             Log.d("Slider error","timer must be equals or greater than 1 second ");
         }
 
+    }
+
+    public  void setOnItemClickListener(EasySliderListener easySliderListener){
+        this.easySliderListener = easySliderListener;
     }
 }

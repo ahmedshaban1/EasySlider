@@ -35,6 +35,18 @@ public  class SliderFragment extends Fragment {
     TextView title;
     ImageView imageView;
 
+    public EasySliderListener getEasySliderListener() {
+        return easySliderListener;
+    }
+
+    public void setEasySliderListener(EasySliderListener easySliderListener) {
+        this.easySliderListener = easySliderListener;
+    }
+
+    EasySliderListener easySliderListener;
+
+    int position = -1;
+
 
 
 
@@ -42,10 +54,11 @@ public  class SliderFragment extends Fragment {
     public SliderFragment() {
     }
 
-    public static SliderFragment newInstance(SliderItem item) {
+    public static SliderFragment newInstance(SliderItem item, int position) {
         SliderFragment fragment = new SliderFragment();
         Bundle args = new Bundle();
         args.putParcelable("item",item);
+        args.putInt("position",position);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,6 +68,7 @@ public  class SliderFragment extends Fragment {
         super.onCreate(savedInstanceState);
         item = getArguments()
                 .getParcelable("item");
+        position = getArguments().getInt("position");
 
     }
 
@@ -85,6 +99,15 @@ public  class SliderFragment extends Fragment {
                     .into(imageView);
         }
 
+        rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(easySliderListener!=null){
+                    easySliderListener.onItemClick(position);
+                }
+            }
+        });
+
 
 
         return rootView;
@@ -97,6 +120,8 @@ public  class SliderFragment extends Fragment {
         title_layout.startAnimation(bottomUp);
         title_layout.setVisibility(View.VISIBLE);
     }
+
+
 
     public void hideTitle() {
         title_layout.setVisibility(View.GONE);
